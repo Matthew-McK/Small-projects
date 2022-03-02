@@ -1,0 +1,36 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-10, 10, 1000)
+
+#exact solution to eq 6 of review paper
+def y(t):
+    "Returns height of the function for a spectific time"
+    
+    y = (24 * (np.exp(2*(x+t)) + 6*np.exp(6*x + 18*t) + 4*np.exp(4*x + 16*t) + 4*np.exp(8*x + 20*t) + np.exp(10*x + 34*t))) / (1 + 3*np.exp(2*x + 2*t) + np.exp(6*x + 18*t) + 3*np.exp(4*x + 16*t))**2
+    return y
+
+plt.figure(0)
+plt.title("Two soliton solution over time(Moving right to left)")
+plt.xlabel("X")
+plt.ylabel("Height")
+print("The green curve is where the two solutions interact. The smaller curve reduces the height of the larger one and then they both separate.")
+print("Blue = -1 sec; Orange = 0 sec, Green = 1 sec, Red = 2 sec")
+for i in range(-2, 2):
+    u = y(i)
+    plt.plot(x, u)
+
+    
+fig, axs = plt.subplots(2, 2, sharex='col', sharey='row')
+plt.figure()
+plt.subplot()
+
+    
+axs[0, 0].plot(x, y(-2))
+axs[0, 0].set_title('t = -2')
+axs[0, 1].plot(x, y(-1))
+axs[0, 1].set_title('t = -1')
+axs[1, 0].plot(x, y(0))
+axs[1, 0].set_title('t = 0')
+axs[1, 1].plot(x, y(1))
+axs[1, 1].set_title('t = 1')

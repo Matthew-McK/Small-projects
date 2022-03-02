@@ -1,0 +1,35 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-10, 10, 1000)
+k = 1
+
+#define height for each time t
+def y(t): 
+    y = 2 * (k**2) * (np.cosh((k*x) + ((k**3)*t)))**(-2)
+    return y
+
+#plot the function over 3 seconds for k=1
+plt.figure(1)
+plt.title(" k=1 over 3 seconds")
+plt.xlabel("x")
+plt.ylabel("Height")
+#plot the function over 3 time value
+for i in range(-2, 2):
+    u = y(i)
+    plt.plot(x, u)
+
+#plot the function over 3 seconds for k=2
+k = 2    
+plt.figure(2)
+plt.title("k=2 over 3 seconds")
+plt.xlabel("X")
+plt.ylabel("Height")
+#plot the function over 4 time value
+for i in range(-2, 2):
+    u = y(i)
+    plt.plot(x, u)
+
+    
+    
+print("The graph travels much farther along  the x axis over time for a higher k value. This implies the wave is travelling faster for larger k value. The wave travels 5 units to the right for k=1 and 12.5 units to the right for k=2. This is what Russel predicted with the solitary wave he oberved.")

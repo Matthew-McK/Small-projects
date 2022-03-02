@@ -1,2 +1,2 @@
 # Small-projects
-A mixture of small practice projects and exercises
+A mixture of small practice projects and college exercises
